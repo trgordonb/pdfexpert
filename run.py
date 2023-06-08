@@ -77,6 +77,7 @@ def data_querying(input_text):
     return response.response
 
 iface = gr.Interface(fn=data_querying,
+                     server_name="0.0.0.0",
                      inputs=gr.components.Textbox(lines=7, label="Enter your question"),
                      outputs="text",
                      title="Wenqi's Custom-trained DevSecOps Knowledge Base")
