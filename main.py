@@ -83,9 +83,9 @@ def data_querying(input_text):
 
 iface = gr.Interface(fn=data_querying,
                      server_name="0.0.0.0",
-                     inputs=gr.components.Textbox(lines=7, label="Enter your question"),
-                     outputs="text",
-                     title="OH Biohealth Health Expert")
+                     inputs=gr.components.Textbox(lines=7, label="输入您的问题"),
+                     outputs="回答",
+                     title="OH Biohealth 健康专家")
 
 
 index = data_ingestion_indexing("docs")
