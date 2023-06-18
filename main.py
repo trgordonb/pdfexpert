@@ -34,8 +34,8 @@ def data_ingestion_indexing(directory_path):
 
     store_index = None
     if pinecone_index_name in pinecone.list_indexes():
-        store_index = Pinecone.from_existing_index(pinecone_index_name, embeddings)
-    elif pinecone_index_name not in pinecone.list_indexes():
+        pinecone.delete_index(pinecone_index_name)
+    if pinecone_index_name not in pinecone.list_indexes():
         pinecone.create_index(
             name=pinecone_index_name,
             dimension=1536,
