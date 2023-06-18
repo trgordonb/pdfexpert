@@ -34,7 +34,9 @@ def data_ingestion_indexing(directory_path):
 
     store_index = None
     if pinecone_index_name in pinecone.list_indexes():
-        pinecone.delete_index(pinecone_index_name)
+        text_field = "text"
+        index = pinecone.Index(pinecone_index_name)
+        store_index = Pinecone(index, embeddings.embed_query, text_field)
     if pinecone_index_name not in pinecone.list_indexes():
         pinecone.create_index(
             name=pinecone_index_name,
